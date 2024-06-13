@@ -7,6 +7,7 @@ vardict={"dibjet_mass":"dibjet_mass",
         "bbgg_mass":"bbgg_mass",
         "lead_pho_pt":"lead_pho_pt",
         "sublead_pho_pt":"sublead_pho_pt"
+        "dibjet_pt":"dibjet_pt"
         #  "metphi":"METPhi",
         #  "jetpt0":"Jet1Pt",
         #  "jetpt1":"Jet2Pt",
@@ -66,7 +67,7 @@ vardict={"dibjet_mass":"dibjet_mass",
 }
 
 
-variables_common={"preselection":["dibjet_mass","diphoton_mass","bbgg_mass","lead_pho_pt","sublead_pho_pt"]}
+variables_common={"preselection":["dibjet_mass","diphoton_mass","bbgg_mass","lead_pho_pt","sublead_pho_pt", "dibjet_pt"]}
 
 # for ireg in regions:
 #         print(ireg)

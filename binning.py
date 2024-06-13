@@ -5,6 +5,7 @@ binning["preselection"]={"dibjet_mass":[25,80,180],
                 "bbgg_mass":[25,150,500],
                 "lead_pho_pt":[25,35,200],
                 "sublead_pho_pt":[25,25,200],
+                "dibjet_pt":[25,35,200]
                 # "metphi":[40,-3.14,3.14],
                 # "jetpt0":[50,0,1000.],
                 # "jetpt1":[50,0,1000.],

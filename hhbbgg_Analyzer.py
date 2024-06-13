@@ -52,6 +52,7 @@ def runOneFile(inputfile, outputrootfile):
       cms_events["dibjet_mass"] = dibjet_.mass
       cms_events["diphoton_mass"] = diphoton_.mass
       cms_events["bbgg_mass"] = (dibjet_+diphoton_).mass
+      cms_events["dibjet_pt"] = dibjet_.pt
 
       from regions import get_mask_preselection
       cms_events["mask_preselection"]   = get_mask_preselection(cms_events)
@@ -63,6 +64,7 @@ def runOneFile(inputfile, outputrootfile):
       out_events["bbgg_mass"] = cms_events["bbgg_mass"]
       out_events["weight_central"] = cms_events["weight_central"]
       out_events["weight_preselection"] = cms_events["weight"]*xsec_*lumi_/out_events.weight_central
+      out_events["dibjet_pt"] = cms_events["dibjet_pt"]
 
       fulltree_=ak.concatenate([out_events,fulltree_],axis=0)
 
