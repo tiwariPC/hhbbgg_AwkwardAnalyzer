@@ -647,7 +647,34 @@ and to delete a branch on GitHub (remote), use:
 ## Exiting Insert Mode
 - `jk`: Map `jk` to exit insert mode (can be set in your `.vimrc`).
 
+### To change the file 
+- 🔧 sed Command Cheat Sheet – Replace Text in Files
 
+- 🧠 Purpose: Use `sed` to quickly find and replace text (e.g. dataset paths or version tags) in files.
+
+- 🧩 Basic Syntax
+```bash
+sed -i 's|old_text|new_text|g' filename
+```
+* `sed`	Stream editor (used to search and replace text).
+* `-i`	Edit file in place (changes are saved directly).
+* ``s`	old
+* `	`
+* `filename`:	File you want to modify.
+eg. 
+
+To replace `/Run3Summer22NanoAODv12-130X_mcRun3_2022_realistic_v5-v2/NANOAODSIM` with `/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM` in  `datasets.txt`:
+```bash
+sed -i 's|/Run3Summer22NanoAODv12-130X_mcRun3_2022_realistic_v5-v2/NANOAODSIM|/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM|g' datasets.txt
+```
+- To Preview changes (don’t modify file yet):
+```bash
+sed 's|old_text|new_text|g' filename | less
+```
+- Save to a new file (keep original intact):
+```bash
+sed 's|old_text|new_text|g' filename > new_filename
+```
 ---
 # Bash Commands
 
@@ -1171,3 +1198,17 @@ t->Print();   // shows branches/leaves with types
 t->Scan();    // prints first few rows of data
 ```
 
+
+### to check the listing of   `.root` file:
+```bash
+python3 - <<'PY'
+import uproot, json
+fn = "../../../outputfiles/merged/DD_CombinedAll/hhbbgg_analyzer-v2-trees.root"
+print("Opening:", fn)
+f = uproot.open(fn)
+dirs = [k.split(';')[0] for k in f.keys() if isinstance(f[k], uproot.reading.ReadOnlyDirectory)]
+print("Found", len(dirs), "directories. First 50:")
+for d in dirs[:50]:
+    print(d)
+PY
+```

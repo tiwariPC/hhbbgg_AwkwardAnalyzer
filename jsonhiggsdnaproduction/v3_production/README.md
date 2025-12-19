@@ -44,6 +44,28 @@ python /afs/cern.ch/user/s/sraj/Analysis/Analysis_HH-bbgg/parquet_production_v3/
 ```
 
 
+
+centrally produced samples are saved at, `/eos/cms/store/group/phys_b2g/HHbbgg/HiggsDNA_parquet/v3`
+Other options for the saved files could be here,  `/eos/cms/store/group/phys_higgs/nonresonant_HH/bbgg`. 
+
+
+
+
+and then merge it
+```bash
+python3 higgs_dna/scripts/postprocessing/prepare_output_file.py --input ../../../output_root/v3_production/backgrounds_2022_preEE/preEE/  --merge --root --ws --syst --cats --args "--do_syst"
+```
+
+To merge with systematics:
+```bash
+python higgs_dna/scripts/postprocessing/prepare_output_file.py \
+  --input ../../../output_parquet/v3_production/production_v3/2022_preEE/ \
+  --merge \
+  --syst \
+  --varDict variation.json
+```
+
+
 <!-- 
 The error of `--nano-version 12` fixed by updating the HiggsDNA.
 before running the command, we had to run,
@@ -278,7 +300,6 @@ python3 higgs_dna/scripts/postprocessing/prepare_output_file.py --input ../../..
 ```
 For the root file conversion,we can add word "NOTAG" and further use the commandas we used earlier. 
 
-centrally produced samples are saved at, `/eos/cms/store/group/phys_b2g/HHbbgg/HiggsDNA_parquet/v3`
 
 ### Working on 2022Pre_EE, 2023 sample
 - copying files to eos 
