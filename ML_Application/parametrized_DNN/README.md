@@ -72,3 +72,42 @@ python inference_PDnn.py \
 ## Ref
 1. https://link.springer.com/article/10.1140/epjc/s10052-016-4099-4
 2. https://arxiv.org/pdf/2202.00424
+
+
+
+
+# As of Sept 30, 2025
+
+To run the `pDNN`
+```bash
+- python pDNN_check_working_f.py # working code with best model. 
+```
+
+- Instruction to run inference:
+We are woking on the https://github.com/raj2022/hhbbgg_AwkwardAnalyzer/blob/run3_all/ML_Application/parametrized_DNN/parametrized_DNN_score.ipynb
+
+
+```bash
+ # simplest: artifacts in current folder (best_pdnn.pt, scaler.pkl, features_used.json)
+python inference_PDnn.py -i /path/to/your/folder
+
+# if artifacts live elsewhere:
+python inference_PDnn.py -i /path/to/folder --artifacts /path/to/artifacts
+
+# write output somewhere specific:
+python inference_PDnn.py -i /path/to/folder -o /path/to/output
+
+# recurse into subfolders and change pattern:
+python inference_PDnn.py -i /path/to/folder --recursive --pattern "*_skim.parquet"
+
+ ```
+
+
+ Example to run on the folder:
+ `python inference_PDnn.py -i ~/Analysis/output_root/v3_production/samples/postBPix/`
+ - this would create a new folder with  `scored`, just to not mess with the original one.
+ to run with the `pDNN_scored` variable:
+ ```bash
+ python hhbbgg_analyzer_lxplus_par.py --year 2023 --era All   -i /afs/cern.ch/user/s/sraj/Analysis/output_root/v3_production/samples/preEE/scored/   -i /afs/cern.ch/user/s/sraj/Analysis/output_root/v3_production/samples/postEE/scored/   -i /afs/cern.ch/user/s/sraj/Analysis/output_root/v3_production/samples/preBPix/scored/   -i /afs/cern.ch/user/s/sraj/Analysis/output_root/v3_production/samples/postBPix/scored/   --tag DD_CombinedAll
+```
+
